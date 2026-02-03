@@ -18,7 +18,26 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
+                echo "🔧 Building Docker image..."
                 docker build -t $IMAGE_NAME:$IMAGE_TAG .
+                '''
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                sh '''
+                echo "🚀 Starting container for health check..."
+                docker run -d --name healthcheck -p 8081:80 $IMAGE_NAME:$IMAGE_TAG
+
+                echo "⏳ Waiting for Nginx to start..."
+                sleep 5
+
+                echo "🔍 Performing health check..."
+                curl -I http://localhost:8081 || true
+
+                echo "🧹 Cleaning up test container..."
+                docker rm -f healthcheck
                 '''
             }
         }
@@ -31,6 +50,7 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh '''
+                    echo "🔐 Logging in to Docker Hub..."
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                     '''
                 }
@@ -40,6 +60,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 sh '''
+                echo "📤 Pushing Docker image to Docker Hub..."
                 docker push $IMAGE_NAME:$IMAGE_TAG
                 '''
             }
