@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleVerse | Virtual Try-On Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="fashion-loader">
+                <i class="fas fa-tshirt"></i>
+                <i class="fas fa-vest"></i>
+                <i class="fas fa-hat-cowboy"></i>
+            </div>
+            <p>Loading StyleVerse...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="logo">
+                    <i class="fas fa-crown"></i>
+                    <span>StyleVerse</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#shop" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#women">Women</a>
+                        <a href="#men">Men</a>
+                        <a href="#kids">Kids</a>
+                        <a href="#new-arrivals">New Arrivals</a>
+                    </div>
+                </div>
+                <a href="#virtual-tryon" class="nav-link">Virtual Try-On</a>
+                <a href="#trends" class="nav-link">Trends</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="wishlist-btn" id="wishlistBtn">
+                    <i class="far fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="user-btn" id="userBtn">
+                    <i class="far fa-user"></i>
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search for outfits, brands, styles..." class="search-input">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title">Redefine Your Style with <span class="highlight">Virtual Try-On</span></h1>
+                <p class="hero-subtitle">Experience fashion like never before. Try outfits virtually before you buy.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary" id="tryNowBtn">Try It Now <i class="fas fa-magic"></i></button>
+                    <button class="btn-secondary">Shop Collection</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-model"></div>
+                <div class="hero-floating-items">
+                    <div class="floating-item shirt">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="floating-item dress">
+                        <i class="fas fa-vest"></i>
+                    </div>
+                    <div class="floating-item accessory">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="floating-item shoes">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="floating-item hat">
+                        <i class="fas fa-hat-cowboy"></i>
+                    </div>
+                    <div class="floating-item bag">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="floating-item sunglasses">
+                        <i class="fas fa-glasses"></i>
+                    </div>
+                    <div class="floating-item watch">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <h2 class="section-title">Shop by Category</h2>
+            <p class="section-subtitle">Discover perfect outfits for every occasion</p>
+            
+            <div class="category-cards">
+                <div class="category-card women" data-category="women">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Women Fashion">
+                        <div class="category-overlay"></div>
+                        <h3>Women</h3>
+                    </div>
+                    <p>Dresses, Tops, Bottoms & Accessories</p>
+                    <button class="category-btn">Explore <i class="fas fa-arrow-right"></i></button>
+                </div>
+                
+                <div class="category-card men" data-category="men">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Men Fashion">
+                        <div class="category-overlay"></div>
+                        <h3>Men</h3>
+                    </div>
+                    <p>Shirts, Jackets, Pants & Footwear</p>
+                    <button class="category-btn">Explore <i class="fas fa-arrow-right"></i></button>
+                </div>
+                
+                <div class="category-card kids" data-category="kids">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kids Fashion">
+                        <div class="category-overlay"></div>
+                        <h3>Kids</h3>
+                    </div>
+                    <p>Playful & Comfortable Fashion</p>
+                    <button class="category-btn">Explore <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Try-On Section -->
+        <section class="virtual-tryon" id="virtual-tryon">
+            <div class="tryon-container">
+                <div class="tryon-info">
+                    <h2 class="section-title">Virtual Try-On Experience</h2>
+                    <p class="tryon-description">
+                        Upload your photo or use your camera to try outfits virtually. Our AI-powered technology creates a realistic preview of how clothes will look on you.
+                    </p>
+                    
+                    <div class="tryon-features">
+                        <div class="feature">
+                            <i class="fas fa-camera"></i>
+                            <h4>Live Camera</h4>
+                            <p>Try in real-time with your camera</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user-check"></i>
+                            <h4>Perfect Fit</h4>
+                            <p>Accurate size recommendations</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tshirt"></i>
+                            <h4>Mix & Match</h4>
+                            <p>Create complete outfits</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary tryon-start-btn">
+                        <i class="fas fa-play-circle"></i> Start Virtual Try-On
+                    </button>
+                </div>
+                
+                <div class="tryon-preview">
+                    <div class="preview-container">
+                        <div class="model-display" id="modelDisplay">
+                            <!-- Model will be shown here -->
+                            <div class="default-model">
+                                <i class="fas fa-user-circle"></i>
+                                <p>Your model will appear here</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tryon-controls">
+                            <button class="control-btn" id="uploadPhotoBtn">
+                                <i class="fas fa-upload"></i> Upload Photo
+                            </button>
+                            <button class="control-btn" id="useCameraBtn">
+                                <i class="fas fa-camera"></i> Use Camera
+                            </button>
+                            <button class="control-btn" id="resetBtn">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="section-header">
+                <h2 class="section-title">Featured Collections</h2>
+                <div class="product-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="women">Women</button>
+                    <button class="filter-btn" data-filter="men">Men</button>
+                    <button class="filter-btn" data-filter="kids">Kids</button>
+                    <button class="filter-btn" data-filter="accessories">Accessories</button>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Size Recommender -->
+        <section class="size-recommender">
+            <div class="recommender-container">
+                <div class="recommender-info">
+                    <h2>AI Size Recommender</h2>
+                    <p>Get accurate size recommendations based on your body measurements and fit preferences.</p>
+                    
+                    <div class="measurement-inputs">
+                        <div class="input-group">
+                            <label>Height (cm)</label>
+                            <input type="number" id="heightInput" placeholder="175">
+                        </div>
+                        <div class="input-group">
+                            <label>Weight (kg)</label>
+                            <input type="number" id="weightInput" placeholder="70">
+                        </div>
+                        <div class="input-group">
+                            <label>Fit Preference</label>
+                            <select id="fitPreference">
+                                <option value="slim">Slim</option>
+                                <option value="regular" selected>Regular</option>
+                                <option value="loose">Loose</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-secondary" id="calculateSizeBtn">Calculate My Size</button>
+                </div>
+                
+                <div class="size-result" id="sizeResult">
+                    <div class="result-placeholder">
+                        <i class="fas fa-ruler-combined"></i>
+                        <p>Your recommended size will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping Cart Modal -->
+        <div class="cart-modal" id="cartModal">
+            <div class="cart-modal-content">
+                <div class="cart-header">
+                    <h3>Your Shopping Bag</h3>
+                    <button class="close-modal" id="closeCartModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will appear here -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>Your bag is empty</p>
+                        <button class="btn-secondary" id="continueShoppingBtn">Continue Shopping</button>
+                    </div>
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shippingCost">Calculated at checkout</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+                    <button class="btn-primary checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Try-On Modal -->
+        <div class="tryon-modal" id="tryonModal">
+            <div class="tryon-modal-content">
+                <div class="tryon-modal-header">
+                    <h3>Virtual Try-On Studio</h3>
+                    <button class="close-modal" id="closeTryonModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="tryon-modal-body">
+                    <div class="tryon-workspace">
+                        <div class="tryon-viewport" id="tryonViewport">
+                            <div class="viewport-placeholder">
+                                <i class="fas fa-user-circle"></i>
+                                <p>Load a photo or enable camera to start</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tryon-products">
+                            <h4>Select Outfits to Try</h4>
+                            <div class="tryon-products-grid" id="tryonProducts">
+                                <!-- Try-on products will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tryon-instructions">
+                        <h4>How to use Virtual Try-On:</h4>
+                        <ol>
+                            <li>Upload a clear full-body photo or enable camera</li>
+                            <li>Select clothing items from the right panel</li>
+                            <li>Drag & drop items onto the model</li>
+                            <li>Adjust position and size if needed</li>
+                            <li>Save your favorite combinations</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>StyleVerse</h4>
+                <p>Revolutionizing fashion shopping with virtual try-on technology.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">Virtual Try-On</a>
+                <a href="#">Trends</a>
+                <a href="#">About Us</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">Size Guide</a>
+                <a href="#">FAQ</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for exclusive offers and fashion tips.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 StyleVerse. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Hidden file input for photo upload -->
+    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+    
+    <script src="script.js"></script>
+</body>
+</html>
